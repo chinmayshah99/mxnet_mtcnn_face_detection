@@ -427,8 +427,8 @@ class MtcnnDetector(object):
         cov = np.matrix([[0.0, 0.0], [0.0, 0.0]])
 
         # compute the mean and cov
-        from_shape_points = from_shape.reshape(from_shape.shape[0]/2, 2)
-        to_shape_points = to_shape.reshape(to_shape.shape[0]/2, 2)
+        from_shape_points = from_shape.reshape(int(from_shape.shape[0]/2), 2)
+        to_shape_points = to_shape.reshape(int(to_shape.shape[0]/2), 2)
         mean_from = from_shape_points.mean(axis=0)
         mean_to = to_shape_points.mean(axis=0)
 
