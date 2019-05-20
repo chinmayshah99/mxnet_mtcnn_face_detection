@@ -11,13 +11,13 @@ detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , ac
 
 def main_logic(img_name):
     print(img_name)
-    img = cv2.imread(img_name)
-    temp_img_name = img_name.rsplit('.', 1)
+    img = cv2.imread('inp/'+ img_name)
+    temp_img_name = img_name.rsplit('.', 1)[0]
     print(temp_img_name)
     # run detector
     results = detector.detect_face(img)
     opdirname = 'out/'
-
+    print(results)
     if results is not None:
 
         total_boxes = results[0]

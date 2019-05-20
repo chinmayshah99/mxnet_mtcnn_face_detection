@@ -204,6 +204,7 @@ class MtcnnDetector(object):
         MIN_DET_SIZE = 12
 
         if img is None:
+            print('nonanan')
             return None
 
         # only works for color image
