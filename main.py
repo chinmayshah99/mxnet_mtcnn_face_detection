@@ -21,7 +21,7 @@ if results is not None:
     # extract aligned face chips
     chips = detector.extract_image_chips(img, points, 144, 0.37)
     for i, chip in enumerate(chips):
-        cv2.imshow('chip_'+str(i), chip)
+        # cv2.imshow('chip_'+str(i), chip)
         cv2.imwrite('chip_'+str(i)+'.png', chip)
 
     draw = img.copy()
@@ -32,7 +32,8 @@ if results is not None:
         for i in range(5):
             cv2.circle(draw, (p[i], p[i + 5]), 1, (0, 0, 255), 2)
 
-    cv2.imshow("detection result", draw)
+    cv2.imwrite('chip_draw'+str(i)+'.png', draw)
+    # cv2.imshow("detection result", draw)
     cv2.waitKey(0)
 
 # --------------
