@@ -5,7 +5,7 @@ import cv2
 import os
 import time
 
-detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(1), num_worker = 4 , accurate_landmark = True)
+detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , accurate_landmark = True)
 
 
 img = cv2.imread('test2.jpg')
