@@ -7,9 +7,7 @@ import time
 
 detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , accurate_landmark = True)
 
-for root, dirs, files in os.walk("inp"):  
-    for filename in files:
-        main_logic(filename)
+
 
 def main_logic(img_name):
     img = cv2.imread(img_name)
@@ -70,3 +68,6 @@ def main_logic(img_name):
         cv2.imshow("detection result", draw)
         cv2.waitKey(30)
     '''
+for root, dirs, files in os.walk("inp"):  
+    for filename in files:
+        main_logic(filename)
