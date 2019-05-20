@@ -480,7 +480,7 @@ class MtcnnDetector(object):
         crop_imgs = []
         for p in points:
             shape  =[]
-            for k in range(len(p)/2):
+            for k in range(int(len(p)/2)):
                 shape.append(p[k])
                 shape.append(p[k+5])
 
