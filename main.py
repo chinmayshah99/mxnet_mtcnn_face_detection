@@ -10,11 +10,13 @@ detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , ac
 
 
 def main_logic(img_name):
+    print(img_name)
     img = cv2.imread(img_name)
     temp_img_name = img_name.rsplit('.', 1)
+    print(temp_img_name)
     # run detector
     results = detector.detect_face(img)
-    opdirname = 'out'
+    opdirname = 'out/'
 
     if results is not None:
 
@@ -25,6 +27,7 @@ def main_logic(img_name):
         chips = detector.extract_image_chips(img, points, 144, 0.37)
         for i, chip in enumerate(chips):
             # cv2.imshow('chip_'+str(i), chip)
+            print(os.path.join(opdirname,'chip_'+ temp_img_name+str(i)+'.png'))
             cv2.imwrite(os.path.join(opdirname,'chip_'+ temp_img_name+str(i)+'.png'), chip)
 
         draw = img.copy()
@@ -34,7 +37,7 @@ def main_logic(img_name):
         for p in points:
             for i in range(5):
                 cv2.circle(draw, (p[i], p[i + 5]), 1, (0, 0, 255), 2)
-
+        print(os.path.join(opdirname,'chip_draw'+temp_img_name+str(i)+'.png'))
         cv2.imwrite(os.path.join(opdirname,'chip_draw'+temp_img_name+str(i)+'.png'), draw)
         # cv2.imshow("detection result", draw)
         cv2.waitKey(0)
