@@ -1,3 +1,5 @@
 *.pyc
 caffe_converter
 .idea
+out/*
+__pycache__/*
