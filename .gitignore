@@ -3,3 +3,4 @@ caffe_converter
 .idea
 out/*
 __pycache__/*
+.vscode/*

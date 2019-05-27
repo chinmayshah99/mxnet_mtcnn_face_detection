@@ -5,11 +5,8 @@ import cv2
 import os
 import time
 
-detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , accurate_landmark = True)
 
-
-
-def main_logic(file_name):
+def main_logic(file_name, detector):
     # Find OpenCV version
     (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
 
@@ -22,9 +19,7 @@ def main_logic(file_name):
     camera = cv2.VideoCapture('inp/' + file_name)
     print(camera.isOpened()) # checking if file is opened
 
-    if camera.isOpened():
-
-    
+    if camera.isOpened(): 
      
         # With webcam get(CV_CAP_PROP_FPS) does not work.
         # Let's see for ourselves.
@@ -76,7 +71,9 @@ def main_logic(file_name):
         assert "couldn't open file"
 
 
+if __name__ == '__main__':
+    detector = MtcnnDetector(model_folder='model', ctx=mx.gpu(), num_worker = 4 , accurate_landmark = True)
 
-for root, dirs, files in os.walk("inp"):  
-    for filename in files:
-        main_logic(filename)
+    for root, dirs, files in os.walk("inp"):  
+        for filename in files:
+            main_logic(filename, detector)
