@@ -71,6 +71,8 @@ def main_logic(img_name):
         cv2.imshow("detection result", draw)
         cv2.waitKey(30)
     '''
-for root, dirs, files in os.walk("inp"):  
-    for filename in files:
-        main_logic(filename)
+
+if __name__ == "__main__":
+    for root, dirs, files in os.walk("inp"):  
+        for filename in files:
+            main_logic(filename)

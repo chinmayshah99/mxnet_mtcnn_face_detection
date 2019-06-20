@@ -2,3 +2,6 @@
 caffe_converter
 .idea
 out/*
+
+.vscode/*
+inp/*
