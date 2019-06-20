@@ -72,7 +72,6 @@ def main_logic(img_name):
         cv2.waitKey(30)
     '''
 
-if __name__ == "__main__":
-    for root, dirs, files in os.walk("inp"):  
-        for filename in files:
-            main_logic(filename)
+for root, dirs, files in os.walk("inp"):  
+    for filename in files:
+        main_logic(filename)
